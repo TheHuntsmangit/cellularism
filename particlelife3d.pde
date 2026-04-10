@@ -1,7 +1,7 @@
 int numTypes = 10;
 float[][] strengths;
 float[][] distances;
-float minDist = 40;
+float minDist = 20;
 float repulseStrength = -6.0;
 int numParticles = 1500;
 ArrayList<particle> swarm;
@@ -55,8 +55,8 @@ void draw(){
 void setValues(){
   for(int i = 0; i < numTypes;i++){
     for(int j = 0; j < numTypes; j++){
-      strengths[i][j] = random(-3.5,3.5);
-      distances[i][j] = random(40,100);
+      strengths[i][j] = random(-2.0,2.0);
+      distances[i][j] = random(40,150);
     }
   }
 }
