@@ -7,7 +7,7 @@ class particle{
   float hue;
   int size = 8;
   int mass = 1;
-
+  float local_density = 0;
   
   particle(){
     location = new PVector(random(worldDimensions.x),
@@ -16,6 +16,7 @@ class particle{
     velocity = new PVector(0,0,0);
     type = int (random(numTypes));
     hue = (360/numTypes)*type;
+    
   }
   
   void applyforces(){
@@ -30,14 +31,25 @@ class particle{
         
         repulse.set(attract);
         dist = attract.mag();
+        if(p.type == type){
+          local_density = 0.0f ;
+        }
+        else{
+          local_density += -(1.0f + dist/minDist)*0.01f;
+        }
         if(dist < distances[p.type][type]){
           attract.normalize();
           attract.mult(strengths[p.type][type]*k*map(dist,0,distances[p.type][type],1,0));
+          
+          
           force.add(attract);
         }
         if(dist < minDist){
           repulse.normalize();
           repulse.mult(repulseStrength*k*map(dist,0,minDist,1,0));
+          if(local_density > -0.2){
+            repulse.mult(k*-local_density);
+          }
           force.add(repulse);
             
         }
@@ -62,6 +74,9 @@ class particle{
   void display(){
     pushMatrix();
     translate(location.x-750,location.y-750,location.z-750);
+    fill(255,0,255);
+    text(local_density,(location.x-750)/100,(location.y-750)/100,(location.z-750)/100);
+    textMode(MODEL);
     fill(hue,255,255);
     sphere(size-3);
     fill(hue,100,100,50);
