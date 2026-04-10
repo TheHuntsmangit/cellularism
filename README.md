@@ -1,2 +1,3 @@
 # cellularism
-a 3d particle life simulation tool currently in development, simple to use.
+cellularism is a project built in the processing ide which simulates partiles in a 3d environment that interact with eachother creating emergent behavior.
+## how do i install/build the project?
