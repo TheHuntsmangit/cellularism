@@ -1,4 +1,4 @@
-  float k = 0.05;
+  float k = 0.1;
   float friction = 0.97;
 class particle{
   PVector location;
@@ -6,7 +6,7 @@ class particle{
   int type;
   float hue;
   int size = 9;
-  int mass = 1;
+  int mass = 2;
   float local_density = 0;
   
   particle(){
@@ -39,7 +39,7 @@ class particle{
         }
         if (attract.mag() > 0){
           float density_factor = 1.0f - min(max(0.0f, local_density - minDist), 2.0f);
-          attract.mult(density_factor);
+          attract.mult(-density_factor/2);
         }
         if(dist < distances[p.type][type]){
           attract.normalize();
@@ -76,10 +76,9 @@ class particle{
     //fill(255,0,255);
     //text(local_density,(location.x-750)/100,(location.y-750)/100,(location.z-750)/100);
     //textMode(MODEL);
-    fill(hue,255,255);
+    fill(hue,100,100);
     sphere(size-3);
-    fill(hue,100,100,50);
-    sphere(size+3);
+
     popMatrix();
     
   }

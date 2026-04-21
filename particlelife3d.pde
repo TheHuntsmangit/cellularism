@@ -1,8 +1,8 @@
 int numTypes = 10;
 float[][] strengths;
 float[][] distances;
-float minDist = 20;
-float repulseStrength = -6.0;
+float minDist = 10;
+float repulseStrength = -5.0;
 int numParticles = 1500;
 ArrayList<particle> swarm;
 PVector worldDimensions;
@@ -27,7 +27,7 @@ void setup(){
 void draw(){
   background(0);
   
-  directionalLight(0,0,100,0.2,1,0.5);
+  directionalLight(51, 102, 200,0.2,1,0.5);
   ambientLight(0,0,80);
   
   camera(camera.x,camera.y,camera.z,camera.x,camera.y,camera.z-200,0,1,0);
@@ -55,8 +55,8 @@ void draw(){
 void setValues(){
   for(int i = 0; i < numTypes;i++){
     for(int j = 0; j < numTypes; j++){
-      strengths[i][j] = random(-2.0,2.0);
-      distances[i][j] = random(40,150);
+      strengths[i][j] = random(-1.0,1.0);
+      distances[i][j] = random(20,150);
     }
   }
 }
