@@ -1,9 +1,9 @@
-int numTypes = 10;
+int numTypes = 5;
 float[][] strengths;
 float[][] distances;
-float minDist = 10;
+float minDist = 12;
 float repulseStrength = -5.0;
-int numParticles = 1500;
+int numParticles = 2000;
 ArrayList<particle> swarm;
 PVector worldDimensions;
 PVector camera;
@@ -12,7 +12,7 @@ void setup(){
   surface.setResizable(true);
   size(1000,1000,P3D);
   worldDimensions = new PVector(1500,1500,1500);
-  camera = new PVector(worldDimensions.x/2,worldDimensions.y/2,1500);
+  camera = new PVector(worldDimensions.x/2,worldDimensions.y/2,0);
   colorMode(HSB,360,100,100);
   sphereDetail(6);//amound of polys in the sphere, keep low if you want frames 
   strengths = new float[numTypes][numTypes];
@@ -56,7 +56,7 @@ void setValues(){
   for(int i = 0; i < numTypes;i++){
     for(int j = 0; j < numTypes; j++){
       strengths[i][j] = random(-1.0,1.0);
-      distances[i][j] = random(20,150);
+      distances[i][j] = random(20,180);
     }
   }
 }

@@ -6,7 +6,7 @@ class particle{
   int type;
   float hue;
   int size = 9;
-  int mass = 2;
+  int mass = 3;
   float local_density = 0;
   
   particle(){
