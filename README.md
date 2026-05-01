@@ -14,3 +14,5 @@ cellularism is a project built in the processing ide which simulates particles i
 - [ ] window options
 - [ ] config file for saving preferences
 - [ ] simulation data visualisations
+## method for creating the project
+nearly 90% of the code from this project was origionally from a youtube tutorial, the code has been modified and will continue to be modified but all credit has to go to [programming chaos](https://www.youtube.com/@programmingchaos8957) on youtube for providing me with an amazing base to use for my project. 
